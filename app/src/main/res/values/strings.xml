@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AgendaSalvar</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_segunda_tela">SegundaTela</string>
+    <string name="lblNome">Nome</string>
+    <string name="lblTelefone">Telefone</string>
+    <string name="LblEmail">Email</string>
+    <string name="lblEndereco">Endereço</string>
+    <string name="lblData">Data</string>
+    <string name="lblGrupo">Grupo</string>
+</resources>
