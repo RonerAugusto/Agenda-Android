@@ -4,15 +4,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.*;
+import android.content.*;
 import android.content.*;
 
 
 public class SegundaTela extends AppCompatActivity implements View.OnClickListener {
 
    //declaraçao dos objetos
+    //a que usei para dar push
 
 
     private EditText edtNome;
@@ -97,6 +97,41 @@ public class SegundaTela extends AppCompatActivity implements View.OnClickListen
     }
 
 
+
+   //esse metodo e responsavel por associar meu res/menu com o metodo principal
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu_segunda_tela, menu);
+
+
+
+        return super.onCreateOptionsMenu(menu);
+
+
+
+    }
+
+    //metodo que escuta o clique do menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.mni_acao1:
+                break;
+            case R.id.mni_acao3:
+                break;
+
+
+        }
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
     //young  listening my buttons
     @Override

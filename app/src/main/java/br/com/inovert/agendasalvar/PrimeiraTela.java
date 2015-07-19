@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.widget.*;
+import android.content.*;
+
 
 
 public class PrimeiraTela extends AppCompatActivity implements View.OnClickListener{
@@ -45,5 +47,8 @@ public class PrimeiraTela extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+        Intent it = new Intent(this, SegundaTela.class);
+       // it.putExtra("VALOR", edtAdicionar.getText().toString());
+        startActivity(it);
     }
 }

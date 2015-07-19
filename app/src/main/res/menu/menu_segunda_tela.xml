@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.inovert.agendasalvar.SegundaTela">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+
+    <item android:id="@+id/mni_acao1" android:title="@string/lblSalvar"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/mni_acao2" android:title="@string/lblAlterar"
+        android:orderInCategory="100" app:showAsAction="never" android:visible="false" />
+
+    <item android:id="@+id/mni_acao3" android:title="@string/lblExcluir"
+        android:orderInCategory="100" app:showAsAction="never" android:visible="false" />
 </menu>

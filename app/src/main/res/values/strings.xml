@@ -10,4 +10,7 @@
     <string name="lblEndereco">Endereço</string>
     <string name="lblData">Data</string>
     <string name="lblGrupo">Grupo</string>
+    <string name="lblSalvar">Salvar</string>
+    <string name="lblAlterar">Alterar</string>
+    <string name="lblExcluir">Excluir</string>
 </resources>
