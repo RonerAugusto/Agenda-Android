@@ -1,7 +1,6 @@
 package br.com.inovert.agendasalvar;
 
 import android.app.AlertDialog;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
@@ -10,6 +9,7 @@ import android.content.*;
 import android.database.sqlite.*;
 import android.database.*;
 
+import br.com.inovert.agendasalvar.database.DataBase;
 
 
 public class PrimeiraTela extends AppCompatActivity implements View.OnClickListener{

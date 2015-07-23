@@ -1,4 +1,4 @@
-package br.com.inovert.agendasalvar;
+package br.com.inovert.agendasalvar.database;
 
 /**
  * Created by roner on 20/07/15.

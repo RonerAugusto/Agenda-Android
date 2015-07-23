@@ -1,4 +1,4 @@
-package br.com.inovert.agendasalvar;
+package br.com.inovert.agendasalvar.database;
 
 /**
  * Created by roner on 20/07/15.
@@ -6,7 +6,6 @@ package br.com.inovert.agendasalvar;
 
 import android.content.Context;
 import android.database.sqlite.*;
-import android.renderscript.Script;
 
 
 public class DataBase extends  SQLiteOpenHelper {
@@ -20,6 +19,8 @@ public class DataBase extends  SQLiteOpenHelper {
     }
 
 
+
+    //comandos no banco persistencia
     @Override
     public void onCreate(SQLiteDatabase db) {
 
