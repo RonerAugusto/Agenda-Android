@@ -13,7 +13,7 @@ public class DataBase extends  SQLiteOpenHelper {
 
     public DataBase (Context context){
 
-        super(context, "AGENDA", null, 1);  //conexao com o banco
+        super(context, "AGENDA2", null, 3);  //conexao com o banco
 
 
     }

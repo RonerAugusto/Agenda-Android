@@ -1,12 +1,23 @@
-package br.com.inovert.agendasalvar;
+package br.com.inovert.agendasalvar.Dominio;
 
+import android.app.AlertDialog;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
 import android.content.*;
-import android.content.*;
+
+
+import java.util.Date;
+
+import br.com.inovert.agendasalvar.Entidade.Contato;
+import br.com.inovert.agendasalvar.R;
+import br.com.inovert.agendasalvar.consultanobanco.RepositorioContato;
+import br.com.inovert.agendasalvar.database.DataBase;
+
 
 
 public class SegundaTela extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +43,13 @@ public class SegundaTela extends AppCompatActivity implements View.OnClickListen
     private ArrayAdapter<String> adpEndereco;
     private ArrayAdapter<String> adpData;
 
+
+    //conexao
+
+    private SQLiteDatabase conn;
+    private DataBase database;
+    private RepositorioContato repositorioContato;
+    private Contato contato;
 
 
 
@@ -89,6 +107,41 @@ public class SegundaTela extends AppCompatActivity implements View.OnClickListen
         adpData.add("Aniversario");
         adpData.add("DataComemorativa");
 
+        try {
+
+
+            //conexao com o banco
+            database=new DataBase(this);
+            conn=database.getWritableDatabase();
+
+            repositorioContato= new RepositorioContato(conn);
+
+
+
+
+
+
+
+
+        }catch (SQLException ex){
+
+            AlertDialog.Builder dlgerro= new AlertDialog.Builder(this);
+            dlgerro.setMessage("erro ao conectar ao banco"+ ex.getMessage());
+            dlgerro.setNeutralButton("OK", null);
+            dlgerro.show();
+
+
+
+
+        }
+
+
+
+
+
+
+
+
 
 
 
@@ -121,7 +174,23 @@ public class SegundaTela extends AppCompatActivity implements View.OnClickListen
         switch (item.getItemId()){
 
             case R.id.mni_acao1:
+
+
+            if (contato == null)
+            {
+                inserir();
+
+
+
+            }
+                finish();
+
+
+
                 break;
+
+
+
             case R.id.mni_acao3:
                 break;
 
@@ -133,7 +202,55 @@ public class SegundaTela extends AppCompatActivity implements View.OnClickListen
         return super.onOptionsItemSelected(item);
     }
 
-    //young  listening my buttons
+           private void inserir ()
+
+           {
+               try
+               {
+                   contato = new Contato();
+
+                   contato.setNome(edtNome.getText().toString());
+                   contato.setTelefone(edtTelefone.getText().toString());
+                   contato.setEmail(edtEmail.getText().toString());
+                   contato.setEndereço(edtEndereco.getText().toString());
+                   contato.setGrupos(edtGrupo.getText().toString());
+
+                   Date date = new Date();
+                   contato.setData(date);
+
+
+                   contato.setTipoTelefone("");
+                   contato.setTipoEmail("");
+                   contato.setTipoEndereço("");
+                   contato.setTipoData("");
+
+
+                   repositorioContato.inserir(contato);
+               } catch (Exception except)
+               {
+
+                   AlertDialog.Builder alert= new  AlertDialog.Builder(this);
+                   alert.setMessage("erro ocorreu ao inserir" +except.getMessage());
+                   alert.setNeutralButton("OK", null);
+                   alert.show();
+
+               }
+
+
+
+
+
+
+
+           }
+
+
+
+
+
+
+
+    //young are listening my buttons
     @Override
     public void onClick(View v) {
 

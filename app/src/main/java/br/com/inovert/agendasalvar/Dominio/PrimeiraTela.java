@@ -1,4 +1,4 @@
-package br.com.inovert.agendasalvar;
+package br.com.inovert.agendasalvar.Dominio;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -9,7 +9,11 @@ import android.content.*;
 import android.database.sqlite.*;
 import android.database.*;
 
+import br.com.inovert.agendasalvar.Entidade.Contato;
+import br.com.inovert.agendasalvar.R;
 import br.com.inovert.agendasalvar.database.DataBase;
+import br.com.inovert.agendasalvar.consultanobanco.RepositorioContato;
+
 
 
 public class PrimeiraTela extends AppCompatActivity implements View.OnClickListener{
@@ -18,13 +22,18 @@ public class PrimeiraTela extends AppCompatActivity implements View.OnClickListe
     private EditText edtAdicionar;
     private ImageButton btnAdicionar;
     private ListView lstContatos;
-    private DataBase dataBase;
-    private SQLiteDatabase  conn;
+
+    //private ArrayAdapter<Contato> adpContato;
+
+
     //teste push
 
 
+  //conexao
+    private DataBase dataBase;
+    private SQLiteDatabase conn;
 
-
+    private RepositorioContato repositoriocontato;
 
 
 
@@ -47,12 +56,14 @@ public class PrimeiraTela extends AppCompatActivity implements View.OnClickListe
 
             //conexao com o banco
             dataBase = new DataBase(this);
-            conn = dataBase.getReadableDatabase();
+            conn = dataBase.getWritableDatabase();
 
-            AlertDialog.Builder dlg= new AlertDialog.Builder(this);
-            dlg.setMessage("conectado com sucesso");
-            dlg.setNeutralButton("OK", null);
-            dlg.show();
+            repositoriocontato=new RepositorioContato(conn);
+            //adpContato=repositoriocontato.buscacontato(this);
+
+            lstContatos.setAdapter(repositoriocontato.buscacontato(this));
+
+
 
 
 
@@ -78,6 +89,16 @@ public class PrimeiraTela extends AppCompatActivity implements View.OnClickListe
 
         Intent it = new Intent(this, SegundaTela.class);
        // it.putExtra("VALOR", edtAdicionar.getText().toString());
-        startActivity(it);
+        startActivityForResult(it,0); //sera retornado um valor do activiry segunda tela
+        //que pegarei pelo metodo abaixo onResult
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        lstContatos.setAdapter(repositoriocontato.buscacontato(this));
+        //depois que processar os dados da primeira segundatela
+        //ira vir o processamento para ca e exucutara o trecha a cima
     }
 }

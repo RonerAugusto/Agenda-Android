@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="br.com.inovert.agendasalvar.SegundaTela"
+    tools:context="br.com.inovert.agendasalvar.Dominio.SegundaTela"
     android:orientation="vertical"
     android:id="@+id/linearlayout2">
 
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="testphaceholder"
+            tools:text="Nome"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblNome"
             android:id="@+id/textView" />

@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.com.inovert.agendasalvar.SegundaTela">
+    tools:context="br.com.inovert.agendasalvar.Dominio.SegundaTela">
 
     <item android:id="@+id/mni_acao1" android:title="@string/lblSalvar"
         android:orderInCategory="100" app:showAsAction="never" />
